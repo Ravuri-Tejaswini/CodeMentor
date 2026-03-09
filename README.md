@@ -61,7 +61,9 @@ CodeMentor aims to solve this by providing a **guided environment that supports 
 ## 🏗️ Project Architecture
 
 The application follows a **modular frontend architecture**.
+
 CodeMentor │ ├── assets/          # Static assets ├── css/ │   └── styles.css   # UI styling │ ├── js/ │   ├── app.js       # Main application logic │   ├── auth.js      # Authentication handling │   ├── dashboard.js # Dashboard functionality │   ├── planner.js   # Planner module │   └── analyzer.js  # Analyzer module │ ├── index.html       # Landing page ├── login.html       # Login page ├── dashboard.html   # Dashboard interface ├── planner.html     # Planning interface └── analyzer.html    # Analysis interface
+
 ---
 
 ## 💻 Technologies Used

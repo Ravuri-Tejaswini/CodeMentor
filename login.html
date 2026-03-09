@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CodeMentor AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">CodeMentor</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container login-container fade-in">
+        <div class="card auth-card">
+            <h2 style="text-align: center; margin-bottom: 0.5rem; font-size: 2rem;">Welcome Back</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Log in to your AI learning
+                space</p>
+
+            <div class="social-auth">
+                <a href="#" class="btn-social btn-social-google" id="googleLogin">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </a>
+                <a href="#" class="btn-social btn-social-microsoft" id="microsoftLogin">
+                    <i class="fab fa-windows"></i>
+                    Continue with Microsoft
+                </a>
+                <a href="#" class="btn-social btn-social-github" id="githubLogin">
+                    <i class="fab fa-github"></i>
+                    Continue with GitHub
+                </a>
+            </div>
+
+            <div style="display: flex; align-items: center; margin: 2rem 0; color: var(--text-dim);">
+                <hr style="flex: 1; border: none; border-top: 1px solid var(--glass-border);">
+                <span style="padding: 0 1rem; font-size: 0.8rem;">OR</span>
+                <hr style="flex: 1; border: none; border-top: 1px solid var(--glass-border);">
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input id="emailInput" name="email" type="email" placeholder="name@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="passwordInput" name="password" type="password" placeholder="******" minlength="6" required>
+                </div>
+                <p class="inline-hint">Use direct email/password login or continue with social sign-in.</p>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Sign In</button>
+                <p id="loginStatusMessage" class="inline-hint" style="margin-top: 0.8rem; display: none;"></p>
+            </form>
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+                Don't have an account? <a href="#" style="color: var(--accent-teal); text-decoration: none;">Sign up</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

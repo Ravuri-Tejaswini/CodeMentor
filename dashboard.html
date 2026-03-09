@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CodeMentor AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+
+        .stat-card {
+            text-align: left;
+            align-items: flex-start;
+            padding: 1.5rem;
+        }
+
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">CodeMentor</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="planner.html">Study Planner</a>
+                <a href="analyzer.html">Code Analyzer</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <div id="userProfile"
+                    style="display: flex; align-items: center; gap: 0.8rem; margin-left: 1rem; padding-left: 1.5rem; border-left: 1px solid var(--glass-border);">
+                    <span id="userName" style="font-size: 0.9rem; color: var(--text-muted);">Guest User</span>
+                    <img id="userAvatar" alt="User avatar"
+                        style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--glass-border);" />
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container fade-in" style="padding-top: 6rem;">
+        <div style="margin-bottom: 4rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Welcome back, <span id="welcomeName"
+                    class="gradient-text">Developer</span></h2>
+            <p style="color: var(--text-muted);">Here's your intelligence overview for today.</p>
+        </div>
+
+        <div class="features-grid" style="margin-top: 0; margin-bottom: 4rem;">
+            <div class="card stat-card">
+                <span
+                    style="color: var(--text-muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Learning
+                    Progress</span>
+                <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0;">64%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 64%;"></div>
+                </div>
+                <span style="color: var(--accent-teal); font-size: 0.85rem;">+12% since last week</span>
+            </div>
+            <div class="card stat-card">
+                <span
+                    style="color: var(--text-muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Code
+                    Analyzed</span>
+                <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0;" id="analysisCount">0</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Snippets processed by AI</p>
+            </div>
+            <div class="card stat-card">
+                <span
+                    style="color: var(--text-muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Study
+                    Streak</span>
+                <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0;" id="streakCount">0 days</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem;" id="taskSummary">0 completed tasks</p>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;">
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Recent <span class="gradient-text">Activities</span>
+                </h3>
+                <div class="card" style="padding: 2rem; text-align: left; align-items: stretch;">
+                    <div id="activityList">
+                        <!-- Activities will be injected here -->
+                        <p style="color: var(--text-dim); text-align: center; padding: 2rem;">No recent activities
+                            found.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Quick <span class="gradient-text">Actions</span>
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <a href="planner.html" class="btn btn-secondary"
+                        style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 1rem;">
+                        <i class="fas fa-plus-circle" style="color: var(--accent-teal);"></i> New Study Plan
+                    </a>
+                    <a href="analyzer.html" class="btn btn-secondary"
+                        style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 1rem;">
+                        <i class="fas fa-search-code" style="color: var(--accent-indigo);"></i> Analyze Code
+                    </a>
+                    <button onclick="logout()" class="btn btn-secondary"
+                        style="text-align: left; justify-content: flex-start; display: flex; align-items: center; gap: 1rem; border-color: rgba(234, 67, 53, 0.2); color: #ea4335;">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.2rem;">Certificates <span class="gradient-text">Profile</span></h3>
+            <div class="card" style="padding: 1.5rem; text-align: left; align-items: stretch;">
+                <form id="certificateForm" class="certificate-row" style="margin-bottom: 1rem;">
+                    <input id="certTitle" type="text" placeholder="Certificate title (e.g. DSA Basics)" required>
+                    <select id="certProvider">
+                        <option value="GeeksforGeeks">GeeksforGeeks</option>
+                        <option value="W3Schools">W3Schools</option>
+                        <option value="Coursera">Coursera</option>
+                        <option value="Udemy">Udemy</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input id="certDate" type="date" required>
+                    <input id="certLink" type="url" placeholder="Certificate URL">
+                    <button class="btn btn-primary" type="submit" style="padding: 0.8rem 1rem;">Add</button>
+                </form>
+                <div id="certificateList">
+                    <p style="color: var(--text-dim);">No certificates added yet.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

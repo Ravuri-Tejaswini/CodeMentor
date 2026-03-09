@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Planner | CodeMentor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">CodeMentor</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="planner.html" class="active">Study Planner</a>
+                <a href="analyzer.html">Code Analyzer</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="login.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem;">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container fade-in" style="padding-top: 6rem;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; margin-bottom: 1rem;">AI Study <span class="gradient-text">Planner</span>
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Design your personalized learning journey with
+                    AI-driven milestones.</p>
+            </div>
+
+            <div class="card" style="padding: 3rem; text-align: left; align-items: stretch;">
+                <form id="plannerForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                        <div class="form-group">
+                            <label>Target Language</label>
+                            <select id="language" required>
+                                <option value="Python">Python</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="Java">Java</option>
+                                <option value="C++">C++</option>
+                                <option value="C">C</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Daily Commitment (Hours)</label>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <input type="range" id="hours" min="1" max="8" value="2" style="flex: 1;">
+                                <span id="hoursVal"
+                                    style="font-weight: 700; color: var(--accent-teal); width: 20px;">2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>What do you want to master?</label>
+                        <textarea id="topics" style="height: 120px;"
+                            placeholder="e.g. Data Structures, Web Development with React, Machine Learning Basics..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Resources</label>
+                        <div class="planner-chip-grid">
+                            <label class="planner-chip"><input type="checkbox" class="resource-choice" value="gfg" checked> GFG</label>
+                            <label class="planner-chip"><input type="checkbox" class="resource-choice" value="w3schools" checked> W3Schools</label>
+                            <label class="planner-chip"><input type="checkbox" class="resource-choice" value="mdn"> MDN</label>
+                            <label class="planner-chip"><input type="checkbox" class="resource-choice" value="leetcode"> LeetCode</label>
+                            <label class="planner-chip"><input type="checkbox" class="resource-choice" value="youtube"> YouTube</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; margin-top: 1rem; padding: 1.2rem;">Generate Custom Roadmap</button>
+                </form>
+            </div>
+
+            <div id="plannerOutput" style="display: none; margin-top: 6rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2rem;">Your <span class="gradient-text">Roadmap</span></h3>
+                    <div style="display:flex; gap:0.6rem;">
+                        <button id="savePlanBtn" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+                            <i class="fas fa-bookmark" style="margin-right: 0.5rem;"></i> Save Plan
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.print()"
+                            style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+                            <i class="fas fa-download" style="margin-right: 0.5rem;"></i> Save PDF
+                        </button>
+                    </div>
+                </div>
+                <div id="scheduleContainer" class="features-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                    <!-- Study cards will be injected here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 10rem; padding: 6rem 0; border-top: 1px solid var(--glass-border); text-align: center;">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2024 CodeMentor AI. Your learning, accelerated.
+        </p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/planner.js"></script>
+</body>
+
+</html>
